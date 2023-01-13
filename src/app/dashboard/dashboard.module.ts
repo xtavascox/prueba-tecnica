@@ -5,6 +5,7 @@ import { UsersComponent } from './users/users.component';
 import { ProductsComponent } from './products/products.component';
 import { SearchComponent } from './search/search.component';
 import {DashboardRoutingModule} from "./dashboard-routing.module";
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -13,7 +14,8 @@ import {DashboardRoutingModule} from "./dashboard-routing.module";
     CategoriesComponent,
     UsersComponent,
     ProductsComponent,
-    SearchComponent
+    SearchComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,

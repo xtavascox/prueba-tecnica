@@ -1,22 +1,55 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {AuthService} from "../auth.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {MessageService} from "primeng/api";
+import {ActivatedRoute, Router, RouterModule} from "@angular/router";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [MessageService]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor(private readonly _authService: AuthService) {
+  loginForm: FormGroup = this.fb.group({
+    username: [, [Validators.required]],
+    password: [, [Validators.required]]
+  })
+
+  constructor(
+    private fb: FormBuilder,
+    private readonly messageService: MessageService,
+    private router: Router,
+    private readonly _authService: AuthService
+  ) {
   }
-  ngOnInit(): void {
-    this.login()
-  }
+
 
   login() {
-    this._authService.login('test1@gmail.com', '123456').subscribe((resp)=>{
-      console.log(resp)
+    const {username, password} = this.loginForm.value
+    // this._authService.login('test1@gmail.com', '123456').subscribe((resp) => {
+    //   console.log(resp)
+    // })
+    this._authService.login(username, password).subscribe({
+      next: (resp) => {
+        localStorage.setItem('U-PT', JSON.stringify(resp.usuario))
+        document.cookie = `t=${resp.token}`
+        this.router.navigate(['dashboard'])
+      },
+      error: (err) => {
+        if (err.error.msg) {
+          this.messageService.add({severity: 'error', summary: 'Error', detail: err.error.msg, life: 1500})
+          return
+        }
+        const temp = err.error.errors.map((item: any) => ({
+          severity: 'error',
+          summary: 'Error',
+          detail: item.msg,
+          life: 1500
+        }))
+        this.messageService.addAll(temp)
+      }
     })
   }
 

@@ -1,0 +1,23 @@
+.content-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.container {
+  width: 100%;
+  height: 95vh;
+}
+
+h2{
+  text-align: center;
+}
+.forms{
+  flex-direction: column;
+  gap: 10px;
+  width: 70%;
+}
+
+
+
+

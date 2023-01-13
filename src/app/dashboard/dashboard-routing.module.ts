@@ -5,11 +5,16 @@ import {CategoriesComponent} from "./categories/categories.component";
 import {ProductsComponent} from "./products/products.component";
 import {SearchComponent} from "./search/search.component";
 import {UsersComponent} from "./users/users.component";
+import {HomeComponent} from "./home/home.component";
 
 const routes: Routes = [
   {
     path: '',
     children: [
+      {
+        path:'home',
+        component:HomeComponent
+      },
       {
         path: 'categories',
         component: CategoriesComponent
@@ -26,6 +31,10 @@ const routes: Routes = [
         path: 'users',
         component: UsersComponent
       },
+      {
+        path:'**',
+        redirectTo:'home'
+      }
 
     ]
   }

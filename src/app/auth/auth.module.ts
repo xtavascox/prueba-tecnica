@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {LoginComponent} from './login/login.component';
 import {AuthRoutingModule} from "./auth-routing.module";
 import {PrimeNgModule} from "../prime-ng/prime-ng.module";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {PrimeNgModule} from "../prime-ng/prime-ng.module";
   imports: [
     CommonModule,
     AuthRoutingModule,
-    PrimeNgModule
+    PrimeNgModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule {
