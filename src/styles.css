@@ -7,3 +7,27 @@ html, body {
 .mt-10 {
   margin-top: 10px;
 }
+
+.sidebar{
+  margin-top: 20px;
+}
+
+.addon-Table{
+  display:flex;
+  justify-content:space-between;
+  background-color: var(--surface-a);
+  padding: 20px;
+  border-radius: 10px;
+}
+.button-container {
+  width:50%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.table-title{
+  width:50%;
+  font-size: 24px;
+  font-weight: 600;
+  margin:0
+}

@@ -13,8 +13,8 @@ import {ActivatedRoute, Router, RouterModule} from "@angular/router";
 export class LoginComponent {
 
   loginForm: FormGroup = this.fb.group({
-    username: [, [Validators.required]],
-    password: [, [Validators.required]]
+    username: ['test1@gmail.com', [Validators.required]],
+    password: ['123456', [Validators.required]]
   })
 
   constructor(
@@ -28,13 +28,12 @@ export class LoginComponent {
 
   login() {
     const {username, password} = this.loginForm.value
-    // this._authService.login('test1@gmail.com', '123456').subscribe((resp) => {
-    //   console.log(resp)
-    // })
+
     this._authService.login(username, password).subscribe({
       next: (resp) => {
         localStorage.setItem('U-PT', JSON.stringify(resp.usuario))
-        document.cookie = `t=${resp.token}`
+        sessionStorage.setItem('token', resp.token)
+        console.log(resp.token)
         this.router.navigate(['dashboard'])
       },
       error: (err) => {

@@ -1,12 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CategoriesComponent } from './categories/categories.component';
-import { UsersComponent } from './users/users.component';
-import { ProductsComponent } from './products/products.component';
-import { SearchComponent } from './search/search.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {CategoriesComponent} from './components/categories/categories.component';
+import {UsersComponent} from './components/users/users.component';
+import {ProductsComponent} from './components/products/products.component';
+import {SearchComponent} from './components/search/search.component';
 import {DashboardRoutingModule} from "./dashboard-routing.module";
-import { HomeComponent } from './home/home.component';
-
+import {HomeComponent} from './components/home/home.component';
+import {SharedModule} from "./shared/shared.module";
+import {DashboardComponent} from './dashboard.component';
+import {PrimeNgModule} from "../prime-ng/prime-ng.module";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -15,11 +18,16 @@ import { HomeComponent } from './home/home.component';
     UsersComponent,
     ProductsComponent,
     SearchComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    SharedModule,
+    PrimeNgModule,
+    ReactiveFormsModule
   ]
 })
-export class DashboardModule { }
+export class DashboardModule {
+}

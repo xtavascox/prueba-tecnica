@@ -1,0 +1,16 @@
+<p-table [value]="list" selectionMode="single" [(selection)]="selected" [dataKey]="key" (onRowSelect)="handleChange()">
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngFor="let col of cols">
+        {{col.header}}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-listBody>
+    <tr [pSelectableRow]="listBody">
+      <td *ngFor="let col of cols;let i = index" >
+        {{listBody[col.field]}}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

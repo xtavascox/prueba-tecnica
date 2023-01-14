@@ -3,7 +3,7 @@ import {
   ActivatedRouteSnapshot,
   CanActivate,
   CanLoad,
-  Route,
+  Route, Router,
   RouterStateSnapshot,
   UrlSegment,
   UrlTree
@@ -17,8 +17,8 @@ import {Observable} from 'rxjs';
 export class AccessGuard implements CanLoad {
   token: string
 
-  constructor() {
-    this.token = document.cookie.replace(/(?:(?:^|.*;\s*)t\s*\=\s*([^;]*).*$)|^.*$/, "$1")
+  constructor(private router: Router) {
+    this.token = sessionStorage.getItem('token') || ''
   }
 
   canLoad(
@@ -29,7 +29,6 @@ export class AccessGuard implements CanLoad {
       console.log('puede acceder');
       return true
     }
-
     return false
   }
 }

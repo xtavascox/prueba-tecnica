@@ -18,7 +18,7 @@ export class PostLoginAccessGuard implements CanActivate {
   token: string
 
   constructor(private router: Router) {
-    this.token = document.cookie.replace(/(?:(?:^|.*;\s*)t\s*\=\s*([^;]*).*$)|^.*$/, "$1")
+    this.token = sessionStorage.getItem('token') || ''
   }
 
   canActivate(
@@ -26,7 +26,6 @@ export class PostLoginAccessGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     console.log('post')
     if (this.token) {
-      this.router.navigate(['dashboard'])
       return false
     }
     return true;
