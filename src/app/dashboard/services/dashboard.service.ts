@@ -29,7 +29,7 @@ export class DashboardService {
   deleteApi(collection: string, id: string): Observable<any> {
     return this.http.delete(this.url + '/' + collection + "/" + id)
   }
-
-//  TODO:Agregar busqueda
-
+  searchApi(collection: string, query: string): Observable<any> {
+    return this.http.get(this.url + '/buscar/' + `${collection}/${query}`)
+  }
 }

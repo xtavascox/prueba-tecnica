@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {CategoriesComponent} from './components/categories/categories.component';
 import {UsersComponent} from './components/users/users.component';
 import {ProductsComponent} from './components/products/products.component';
-import {SearchComponent} from './components/search/search.component';
 import {DashboardRoutingModule} from "./dashboard-routing.module";
 import {HomeComponent} from './components/home/home.component';
 import {SharedModule} from "./shared/shared.module";
@@ -20,7 +19,6 @@ import {ModalCategoriesComponent} from "./components/categories/components/modal
     CategoriesComponent,
     UsersComponent,
     ProductsComponent,
-    SearchComponent,
     HomeComponent,
     DashboardComponent,
     ModalProductsComponent,

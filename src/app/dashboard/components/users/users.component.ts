@@ -3,6 +3,8 @@ import {DashboardService} from "../../services/dashboard.service";
 import {IUsers, Usuario} from "../../../interfaces/users.interface";
 import {BsModalRef, BsModalService, ModalOptions} from "ngx-bootstrap/modal";
 import {ModalUsersComponent} from "./components/modal-users/modal-users.component";
+import {Categoria} from "../../../interfaces/categories.interface";
+import {Message} from "primeng/api";
 
 @Component({
   selector: 'app-users',
@@ -11,6 +13,7 @@ import {ModalUsersComponent} from "./components/modal-users/modal-users.componen
 })
 export class UsersComponent {
   private readonly collection: string = 'usuarios';
+  originData: Usuario[] = []
   list: Usuario[];
   selection: string = ''
   bsModalRef?: BsModalRef;
@@ -22,10 +25,27 @@ export class UsersComponent {
 
   getUsers() {
     return this.service.getApi(this.collection).subscribe((res: IUsers) => {
+      this.originData = res.usuarios
       this.list = res.usuarios.map((item: Usuario) => (
         {...item}
       ))
     })
+  }
+
+  searchQuery(query: string) {
+    if (query) {
+      this.service.searchApi(this.collection, query).subscribe({
+        next: (resp) => {
+          console.log(resp)
+          this.list = resp.results
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      })
+      return
+    }
+    this.list = this.originData
   }
 
   reload() {
@@ -61,5 +81,9 @@ export class UsersComponent {
         this.bsModalRef?.onHide.unsubscribe()
       }
     })
+  }
+
+  sugerencias(query: string) {
+    this.searchQuery(query)
   }
 }
