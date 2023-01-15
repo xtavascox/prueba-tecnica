@@ -7,7 +7,8 @@ import {MenuModule} from 'primeng/menu';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {DropdownModule} from 'primeng/dropdown';
-
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 @NgModule({
   exports: [
     ButtonModule,
@@ -17,7 +18,9 @@ import {DropdownModule} from 'primeng/dropdown';
     MenuModule,
     TableModule,
     DialogModule,
-    DropdownModule
+    DropdownModule,
+    MessagesModule,
+    MessageModule
   ]
 })
 export class PrimeNgModule {

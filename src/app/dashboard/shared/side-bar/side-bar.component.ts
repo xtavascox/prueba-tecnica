@@ -7,14 +7,13 @@ import {MenuItem} from "primeng/api";
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent {
-  //TODO:Cambiar iconos
+
   items: MenuItem[] = [{
     label: 'Prueba tecnica',
     items: [
-      {label: 'Usuarios', icon: 'pi pi-fw pi-plus', routerLink: 'users'},
-      {label: 'Productos', icon: 'pi pi-fw pi-download', routerLink: 'products'},
-      {label: 'Categorias', icon: 'pi pi-fw pi-refresh', routerLink: 'categories'},
-      {label: 'Buscar', icon: 'pi pi-fw pi-refresh', routerLink: 'search'}
+      {label: 'Usuarios', icon: 'pi pi-fw pi-user', routerLink: 'users'},
+      {label: 'Productos', icon: 'pi pi-fw pi-box', routerLink: 'products'},
+      {label: 'Categorias', icon: 'pi pi-fw pi-tags', routerLink: 'categories'}
     ]
   }
   ];

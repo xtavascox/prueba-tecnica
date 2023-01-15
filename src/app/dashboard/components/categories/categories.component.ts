@@ -30,6 +30,26 @@ export class CategoriesComponent {
     })
   }
 
+  searchQuery(query: string) {
+    if (query) {
+      this.service.searchApi(this.collection, query).subscribe({
+        next: (resp) => {
+          console.log(resp)
+          this.list = resp.results.map((item: Categoria) => (
+            {...item, usuario: item.usuario}
+          ))
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      })
+      return
+    }
+    this.list = this.originData.map((item: Categoria) => (
+      {...item, usuario: item.usuario.nombre}
+    ))
+  }
+
   handleSelection(id: string) {
     this.selection = id
     console.log(this.selection)
@@ -62,6 +82,10 @@ export class CategoriesComponent {
         this.bsModalRef?.onHide.unsubscribe()
       }
     })
+  }
+
+  sugerencias(query: string) {
+    this.searchQuery(query)
   }
 
 }

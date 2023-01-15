@@ -1,0 +1,12 @@
+<form autocomplete="off">
+  <div class="p-inputgroup">
+    <input type="text"
+           name="termino"
+           pInputText
+           [(ngModel)]="termino"
+           (input)="teclaPresionada()"
+           [placeholder]="placeholder"/>
+    <span class="p-inputgroup-addon" (click)="handleClear()"><i class="pi pi-replay"></i></span>
+  </div>
+
+</form>

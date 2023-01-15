@@ -1,7 +1,9 @@
 <div class="addon-Table">
   <p class="table-title">Usuarios</p>
   <div class="button-container">
-    <p-button type="button" icon="pi pi-plus" styleClass="p-button-success" (click)="openDialog('crear')"></p-button>
+    <app-search (onDebounce)="sugerencias($event)" (onClear)="getUsers()"
+                placeholder="Escribir termino"></app-search>
+    <p-button type="button" label="Crear" icon="pi pi-plus" styleClass="p-button-success" (click)="openDialog('crear')"></p-button>
   </div>
 </div>
 <div *ngIf="list.length>0" class="mt-10">
