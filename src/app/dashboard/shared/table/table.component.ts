@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-table',
@@ -13,6 +12,8 @@ export class TableComponent implements OnInit {
   selected = '';
   cols: any[] = []
 
+  constructor() {}
+
   ngOnInit(): void {
     this.cols = Object.keys(this.list[0]).map(item => ({field: item, header: item}))
   }
@@ -21,4 +22,5 @@ export class TableComponent implements OnInit {
     // @ts-ignore
     this.selection.emit(this.selected[this.key])
   }
+
 }

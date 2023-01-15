@@ -5,11 +5,11 @@ import {MenuModule} from "primeng/menu";
 import {TableComponent} from './table/table.component';
 import {PrimeNgModule} from "../../prime-ng/prime-ng.module";
 
-
 @NgModule({
   declarations: [
     SideBarComponent,
-    TableComponent
+    TableComponent,
+
   ],
   exports: [
     SideBarComponent,
@@ -18,7 +18,8 @@ import {PrimeNgModule} from "../../prime-ng/prime-ng.module";
   imports: [
     CommonModule,
     MenuModule,
-    PrimeNgModule
+    PrimeNgModule,
+
   ]
 })
 export class SharedModule {

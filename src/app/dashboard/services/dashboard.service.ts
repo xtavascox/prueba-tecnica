@@ -19,15 +19,15 @@ export class DashboardService {
   }
 
   postApi(collection: string, body: any): Observable<any> {
-    return this.http.get(this.url + '/' + collection, {...body})
+    return this.http.post(this.url + '/' + collection, {...body})
   }
 
   putApi(collection: string, id: string, body: any): Observable<any> {
-    return this.http.get(this.url + '/' + collection + "/" + id, {...body})
+    return this.http.put(this.url + '/' + collection + "/" + id, {...body})
   }
 
   deleteApi(collection: string, id: string): Observable<any> {
-    return this.http.get(this.url + '/' + collection + "/" + id)
+    return this.http.delete(this.url + '/' + collection + "/" + id)
   }
 
 //  TODO:Agregar busqueda

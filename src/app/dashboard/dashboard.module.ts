@@ -9,8 +9,11 @@ import {HomeComponent} from './components/home/home.component';
 import {SharedModule} from "./shared/shared.module";
 import {DashboardComponent} from './dashboard.component';
 import {PrimeNgModule} from "../prime-ng/prime-ng.module";
-import {ReactiveFormsModule} from "@angular/forms";
-
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ModalProductsComponent} from './components/products/components/modal-products/modal-products.component';
+import {ModalModule} from 'ngx-bootstrap/modal';
+import { ModalUsersComponent } from './components/users/components/modal-users/modal-users.component';
+import {ModalCategoriesComponent} from "./components/categories/components/modal-categories/modal-categories.component";
 
 @NgModule({
   declarations: [
@@ -20,13 +23,18 @@ import {ReactiveFormsModule} from "@angular/forms";
     SearchComponent,
     HomeComponent,
     DashboardComponent,
+    ModalProductsComponent,
+    ModalUsersComponent,
+    ModalCategoriesComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
     PrimeNgModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    ModalModule.forRoot()
   ]
 })
 export class DashboardModule {

@@ -1,18 +1,9 @@
 <div class="addon-Table">
   <p class="table-title">Categorias</p>
   <div class="button-container">
-    <p-button type="button" icon="pi pi-plus" styleClass="p-button-success" (click)="handleModal()"></p-button>
-    <p-button type="button" icon="pi pi-file-edit" styleClass="p-button-warning"></p-button>
-    <p-button type="button" icon="pi pi-trash" styleClass="p-button-danger"></p-button>
+    <p-button type="button" icon="pi pi-plus" styleClass="p-button-success" (click)="openDialog('crear')"></p-button>
   </div>
 </div>
 <div *ngIf="list.length>0" class="mt-10">
-  <app-table [list]="list" key="_id" (selection)="handleSelection($event)"/>
+  <app-table [list]="list" key="_id" (selection)="handleSelection($event);openDialog('editar',selection)"/>
 </div>
-
-<p-dialog header="Header" [(visible)]="isVisible" [style]="{width: '50vw'}" [baseZIndex]="10000">
-  <form>
-
-  </form>
-
-</p-dialog>

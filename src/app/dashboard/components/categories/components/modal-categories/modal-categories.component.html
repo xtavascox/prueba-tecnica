@@ -1,0 +1,19 @@
+<div style="background-color: var(--surface-a);color: var(--text-color)">
+  <div class="modal-header" style="border-bottom: none">
+    <h4 class="modal-title pull-left">{{title | titlecase}}</h4>
+    <button type="button" style="color: aliceblue !important;" class="btn-close close pull-right" aria-label="Close"
+            (click)="bsModalRef.hide()">
+      <span aria-hidden="true" class="visually-hidden" style="color: aliceblue !important">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formComponent" style="display: flex;flex-direction: column;gap: 15px">
+      <input type="text" formControlName='nombre' pInputText placeholder="Nombre">
+    </form>
+  </div>
+  <div class="modal-footer" style="border-top: none">
+    <button *ngIf="title==='editar'" type="button" class="btn btn-danger" (click)="handleDelete()">Eliminar</button>
+    <button type="button" class="btn btn-success"
+            (click)="sendForm()">{{title === 'editar' ? 'Actualizar' : 'Crear'}}</button>
+  </div>
+</div>

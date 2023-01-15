@@ -8,9 +8,11 @@
   </ng-template>
   <ng-template pTemplate="body" let-listBody>
     <tr [pSelectableRow]="listBody">
-      <td *ngFor="let col of cols;let i = index" >
+      <td *ngFor="let col of cols;let i = index">
         {{listBody[col.field]}}
       </td>
     </tr>
   </ng-template>
 </p-table>
+
+
